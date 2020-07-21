@@ -1,0 +1,71 @@
+<section>
+    <div class="jumbotron mt-3">
+        {{#if error}}
+        <h1> {{error}} </h1>
+        <p> Try again. <a href="/">Home</a> </p>
+        {{/if}}
+
+        {{#if result}}
+            <h6> This is the information about {{name}} we have.</h6>
+            <div style="height: 500px;" class="overflow-auto">
+                {{#each superhero.results}}
+                <div class="card mt-3">
+                    <h2 class="card-header">{{name}}</h2>
+    
+                    <div class="card-body">
+                        <h4 class="card-title">Abstract</h4>
+                        <p class="card-text"> {{biography.full-name}}, better known as {{name}} was born in
+                            {{biography.place-of-birth}}. Its first appearance was in "{{biography.first-appearance}}".
+                            <br>
+                            Ocuppation: {{work.occupation}}
+                            <br>
+                            Base: {{work.base}} <br>
+                        <p>Height: {{appearance.height}}, Weight: {{appearance.weight}}</p>
+    
+                        </p>
+                    </div>
+                    <img src={{image.url}} class="img-fluid mx-auto p-3" alt={{id}}>
+                    <div class="card-footer container">
+                        <div class="d-flex flex-column">
+    
+                            <div class="d-flex flex-column">
+                                {{#with powerstats}}
+                                <div class="row">
+                                    <h2 class="card-title">Statistics</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Intelligence: {{intelligence}}</p>
+                                        <p>Strength: {{strength}}</p>
+                                        <p>Speed: {{speed}} </p>
+                                    </div>
+                                    <div class="col">
+                                        <p>Durability: {{durability}} </p>
+                                        <p>Power: {{power}}</p>
+                                        <p>Combat: {{combat}} </p>
+                                    </div>
+                                </div>
+                                {{/with}}
+                            </div>
+    
+                            <div class="d-flex flex-column">
+                                {{#with connections}}
+                                <div class="row">
+                                    <h2 class="card-title">Connections</h2>
+                                </div>
+                                <div class="row">
+                                    <p class="card-text"> Group affiliation: {{group-affiliation}} </p>
+                                    <p class="card-text"> Relatives: {{relatives}} </p>
+                                </div>
+    
+                                {{/with}}
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                </div>
+                {{/each}}
+            </div>
+        {{/if}}
+</section>
