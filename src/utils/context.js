@@ -4,6 +4,6 @@ const context = {
         subtitle: 'Superhero Library',
         copyrightYear: new Date().getFullYear()
     }
-}
+};
 
 module.exports = context;
